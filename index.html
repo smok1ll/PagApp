@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Descarga Librarium</title>
+
+    <script>            
+            function actualizar() {
+            const esMobile = navigator.maxTouchPoints > 0; // Detecta si es movil
+            const linkDescarga = document.getElementById('link-descarga');
+            const qrImagen = document.getElementById('qr-imagen');
+
+            // Muestra el botón o el QR según la condición
+            if (esMobile) {
+                linkDescarga.classList.remove('escondido'); // Muestra el botón
+                qrImagen.classList.add('escondido'); // Oculta el QR
+            } else {
+                linkDescarga.classList.add('escondido'); // Oculta el botón
+                qrImagen.classList.remove('escondido'); // Muestra el QR
+            }
+        }
+        // Escuchar cambios en el tamaño de la ventana
+        window.addEventListener('resize', actualizar);
+        // Ejecutar al cargar la página
+        document.addEventListener('DOMContentLoaded', actualizar);
+    </script>
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1>LIBRARIUM</h1>
+        <p>Lleva un registro de los libros que lees, fácil y rápido</p>
+        <a id="link-descarga" href="https://drive.google.com/uc?export=download&id=1d5q0Ll5cR4LKJI8TexSI_AY1_r582Rfa" class="escondido" >Descargar</a>    
+        <img id="qr-imagen" src="img/frame.png" alt="QR para descargar la app" class="escondido">
+
+    </div>
+
+</body>
+</html>
